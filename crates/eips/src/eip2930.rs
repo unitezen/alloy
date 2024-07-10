@@ -30,8 +30,6 @@ pub struct AccessListItem {
             strategy = "proptest::collection::vec(proptest::arbitrary::any::<B256>(), 0..=20)"
         )
     )]
-    // In JSON, we have to accept `null` for storage key, which is interpreted as an empty array.
-    #[cfg_attr(feature = "serde", serde(deserialize_with = "alloy_serde::null_as_default"))]
     pub storage_keys: Vec<B256>,
 }
 
